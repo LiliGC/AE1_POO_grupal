@@ -97,7 +97,7 @@ class Vendedor:
         self.__comision= comision
     def agregar_comision(self,compra):
         self.__comision=self.__comision+0.005*compra
-        print(f"Comision por la compra realizada de {self.__comision}")
+        print(f"Comision por la compra realizada de {0.005*compra}")
         print(f"Usted lleva acumulado {self.__comision}.")
     def vender():
         Clientes.mostrar_id()
