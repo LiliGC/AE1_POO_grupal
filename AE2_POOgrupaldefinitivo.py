@@ -204,7 +204,7 @@ while True:
             print("\n-----Bienvenido al catálogo de productos de Te lo vendo Market-----\n")        
             print("[1] Mostrar catálogo de productos.")
             print("[2] Modificar stock de productos")
-            print("[3] Modificar precio de productos")
+            print("[3] Mostrar proveedores")
             print("[4] Eliminar productos")
             print("[5] Volver al menu principal")
             opcion3 = int(input("Seleccione una opción: "))
@@ -215,8 +215,7 @@ while True:
                 print("Este método se trabajará en el próximo trabajo")
                 break
             elif opcion3==3:
-                print("Este método se trabajará en el próximo trabajo")
-                break
+                 Proveedor.mostrar_proveedores()
             elif opcion3==4:
                 print("Este método se trabajará en el próximo trabajo")
                 break
