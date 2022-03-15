@@ -14,9 +14,10 @@ class Clientes:
         self.fecha_de_registro= fecha_de_registro
         self.__saldo= saldo
         self.a_pagar=a_pagar
-#Metodo para agregar saldo al Cliente
+#Metodo para acceder al saldo del Cliente
     def get_saldo(self):
         return self.__saldo
+#Metodo para agregar saldo al Cliente
     def agregar_saldo(self,saldo):
         self.__saldo=self.__saldo+saldo
 #Metodo para descontar saldo al Cliente
@@ -51,18 +52,46 @@ Constanza=Clientes(5,"Constanza", "Campos", "cony@gmail.com", "05/01/2020", 3000
 #Creación de un diccionario con los clientes
 clientes={"1":Liliana,"2":Clara, "3":Antonia, "4":Valentina, "5":Constanza}
 
+#Creación de la clase proveedor
+class Proveedor:
+
+    def __init__(self, rut, nombre_legal, razon_social, pais, juridica):
+        self.rut=rut
+        self.nombre_legal= nombre_legal
+        self.razon_social= razon_social
+        self.pais= pais
+        self.juridica= juridica
+#Método para obtener en pantalla un string con los datos del proveedor   
+    def __str__(self):
+        return f"Datos proveedor:\n {self.razon_social}\t{self.rut}\t{self.juridica}\t"
+    def mostrar_proveedores():
+        for key in proveedores:
+            print(proveedores[key])
+            input()
+#Creacion de objetos de proveedores
+prov1= Proveedor("72635988-7", "Danilo Mardones", "Adidas_SA", "Chile", "Juridica")
+prov2= Proveedor("66359188-7", "Ricardo Gonzalez", "Foster_SA", "Chile", "Juridica")
+prov3= Proveedor("75635988-8", "Vanesa Saldivar", "Phillips_sa", "Chile", "Juridica")
+prov4= Proveedor("69635988-3", "Fernando Perez", "Costa", "Chile", "Juridica")
+prov5= Proveedor("77635988-5", "Patricio Oliva", "Casillero del Diablo", "Chile", "Juridica")
+#Creación de un diccionario con los objetos proveedores
+proveedores={"1":prov1, "2":prov2, "3":prov3, "4":prov4, "5":prov5}
+
 #Creación de la clase Productos con el método constructor init.
 class Productos:
-    def __init__(self, sku, nombre, categoria, proveedor, stock, valor_neto, impuesto=1.19):
+    def __init__(self, sku, nombre, categoria, proveedores, stock, valor_neto, color, impuesto=1.19):
         self.sku = sku
         self.nombre = nombre
         self.categoria = categoria
-        self.proveedor= proveedor
+        self.proveedores= proveedores
         self.stock= stock
         self.valor_neto= valor_neto
+        self.color=color
         self.__impuesto= impuesto
+#Metodo para calcular el precio final de compra
     def precio_total(self):
         return int(self.valor_neto*1.19)
+#Metodo para descontar al stock del producto
     def descontar_stock(self):
         if self.stock>1:
             print(f"Compra Autorizada\nUsted venderá 1 unidad de {self.stock} del producto {self.nombre}")
@@ -73,18 +102,19 @@ class Productos:
 #Metodo para mostrar catalogo de productos
     def mostrar_productos():
         print("Los siguientes productos se encuentran en nuestro catálogo:\n")
-        print('{:15}{:25}{:15}{:7}{:15}'.format("Sku", "Nombre", "Categoria", "Stock", "Valor neto"))
-        print("*"*75)
+        print('{:15}{:25}{:15}{:7}{:15}{:10}'.format("Sku", "Nombre", "Categoria", "Stock", "Valor neto", "Color"))
+        print("*"*90)
         for key in productos:
-            print('{:<15}{:<25}{:<15}{:<7}{:<15}'.format(productos[key].sku,productos[key].nombre,productos[key].categoria,productos[key].stock, productos[key].valor_neto))
+            print('{:<15}{:<25}{:<15}{:<7}{:<15}{:<10}'.format(productos[key].sku,productos[key].nombre,productos[key].categoria,productos[key].stock, productos[key].valor_neto, productos[key].color))
 #Creación de instancias de Productos
-zapatillas= Productos(20221, "zapatillas", "calzado", "Adidas_sa", 40, 40000, 7600)
-jeans= Productos(20222, "jeans", "vestuario", "foster_sa", 50, 30000, 5700)
-audifonos= Productos(20223, "audifonos", "electronica", "Phillips_sa",50, 30000, 5700)
-chocolates= Productos(20224, "bombones de chocolate", "alimentacion", "Lind", 40, 15000, 2850)
-vino= Productos(20225, "botella de vino 1.5L","licores", "Casillero del Diablo", 50, 20000, 3800)
+zapatillas= Productos(20221, "zapatillas", "calzado", proveedores["1"].razon_social, 40, 40000,"blancas", 7600)
+jeans= Productos(20222, "jeans", "vestuario",proveedores["2"].razon_social , 50, 30000, "azules",5700)
+audifonos= Productos(20223, "audifonos", "electronica", proveedores["3"].razon_social,50, 30000,"negros", 5700)
+chocolates= Productos(20224, "bombones de chocolate", "alimentacion", proveedores["4"].razon_social, 40, 15000,"oscuro", 2850)
+vino= Productos(20225, "botella de vino 1.5L","licores", proveedores["5"].razon_social, 50, 20000, "tinto",3800)
 #Creación de un diccionario con los productos
 productos= {"1":zapatillas, "2":jeans, "3":audifonos, "4":chocolates, "5":vino}
+
 
 #Creación de la clase Vendedor
 class Vendedor:
@@ -131,6 +161,7 @@ vendedor3= Vendedor("15530724-7", "Santiago", "Fernandez", "electronica", produc
 vendedor4= Vendedor("18620708-3", "Valeria", "Salinas", "alimentacion",productos["4"].nombre,  0)
 vendedor5= Vendedor("17350606-5", "Juan", "Riquelme", "licores",productos["5"].nombre,  0)
 vendedores={"1":vendedor1, "2":vendedor2, "3":vendedor3, "4":vendedor4, "5":vendedor5}
+
 #Menú para acceder a los datos del cliente
 while True:
     print("\n-----Bienvenido a Te lo vendo Market-----\n")
