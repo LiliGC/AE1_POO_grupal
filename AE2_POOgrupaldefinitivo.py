@@ -162,6 +162,28 @@ vendedor4= Vendedor("18620708-3", "Valeria", "Salinas", "alimentacion",productos
 vendedor5= Vendedor("17350606-5", "Juan", "Riquelme", "licores",productos["5"].nombre,  0)
 vendedores={"1":vendedor1, "2":vendedor2, "3":vendedor3, "4":vendedor4, "5":vendedor5}
 
+
+class BodegaPrincipal:
+    def __init__(self, direccion, mts2, stock):
+        self.direccion=direccion
+        self.mts2=mts2
+        stock=stock
+        
+    def despachar_producto():
+        #funcion descontar propio stock y sumarselo a una sucursal
+
+        pass
+
+    def recepcionar_producto():
+        # add stock
+        pass
+
+class Sucursal(BodegaPrincipal):
+    def despachar_producto():
+        #res stock sucursal & add to bodega principal
+        pass
+
+
 #Menú para acceder a los datos del cliente
 while True:
     print("\n-----Bienvenido a Te lo vendo Market-----\n")
