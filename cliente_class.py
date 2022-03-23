@@ -1,5 +1,5 @@
 class Cliente:
-    def __init__(self, id, nombre, apellido, correo, fecha, saldo, cuenta=0):
+    def __init__(self, id, nombre, apellido, correo, fecha, saldo, cuenta=0):   #cuenta esl el argumento opcional del abp2
         self.id_cliente = id
         self.nombre = nombre
         self.apellido = apellido
@@ -19,6 +19,8 @@ class Cliente:
 #Metodo para mostrar saldo
     def mostrar_saldo(self):
         print("\nEl cliente :", self.nombre, self.apellido, "tiene un saldo de $", self.__saldo)
+        
+"""
 #Metodo para mostrar Id de todos los clientes
     def mostrar_id():   #NOT WORK
         print("Los clientes registrados son los siguientes:\n")
@@ -33,7 +35,7 @@ class Cliente:
         print("*"*60)
         for key in clientes:
             print('{:<15}{:<15}{:<15}{:<15}'.format(clientes[key].id_cliente, clientes[key].nombre, clientes[key].apellido, clientes[key].__saldo))
-
+"""
 
 
 """
