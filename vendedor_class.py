@@ -30,7 +30,7 @@ class Vendedor:
             print(f"Compra Autorizada\nUsted venderá 1 unidad de {prod.stock} del producto {prod.nombre}")
             prod.stock -= 1
             print(f"El nuevo stock de {prod.nombre} es de {prod.stock} unidad(es).")
-            def setCo
+            
             print(f"Comision por la compra realizada de {self.aux}")
             print(f"Usted lleva acumulado {self.__comision}.")            
             return [self.compra.stock, self.__comision]
