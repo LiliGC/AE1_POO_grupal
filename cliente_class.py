@@ -9,7 +9,7 @@ class Cliente:
         self.cuenta=cuenta
 #Metodo para acceder al saldo del cliente
     def getSaldo(self):
-        return self.__saldo
+        return int(self.__saldo)
 #Metodo para agregar saldo al Cliente
     def setSaldo_mas(self,saldo):
         self.__saldo+=saldo
@@ -24,7 +24,7 @@ class Cliente:
         print("Los clientes registrados son los siguientes:\n")
         print('{:15}{:15}'.format("Id_cliente", "Nombre"))
         print("*"*30)
-        for key in clientes:
+        for key in (clientes):
             print('{:<15}{:<15}'.format(clientes[key].id_cliente, clientes[key].nombre))
 #Metodo para mostrar los saldos de todos los clientes
     def mostrar_saldos():   #NOT WORK

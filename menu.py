@@ -33,4 +33,11 @@ constanza=Cliente(5,"Constanza", "Campos", "cony@gmail.com", "05/01/2020", 30000
 #Creación de un diccionario con los clientes
 clientes={"1":liliana,"2":clara, "3":antonia, "4":valentina, "5":constanza}
 
-Cliente.mostrar_id()
+vend1= Vendedor(186541239, "Diego", "Brando", "Juguetería")
+vend2= Vendedor(186561239, "Dio", "Brando", "Calzado")
+vend3= Vendedor(186571239, "Didier", "Brando", "Vestuario")
+vend4= Vendedor(186581239, "Darío", "Brando", "Tecnología")
+vend5= Vendedor(186591239, "Dior", "Brando", "Librería")
+
+vendedores={"1":vend1,"2":vend2, "3":vend3, "4":vend4, "5":vend5}
+
