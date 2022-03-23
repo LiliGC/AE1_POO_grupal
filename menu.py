@@ -1,4 +1,5 @@
-from bodega_class import BodegaPrincipal, Sucursal
+from bodega_class import BodegaPrincipal
+from sucursal_class import Sucursal
 from proveedor_class import Proveedor
 from producto_class import Producto
 from cliente_class import Cliente
@@ -32,3 +33,4 @@ constanza=Cliente(5,"Constanza", "Campos", "cony@gmail.com", "05/01/2020", 30000
 #Creación de un diccionario con los clientes
 clientes={"1":liliana,"2":clara, "3":antonia, "4":valentina, "5":constanza}
 
+Cliente.mostrar_id()
